@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eleanor Fang&#39;s TechNotes</title>
+    <link>http://replace-this-with-your-hugo-site.com/</link>
+    <description>Recent content on Eleanor Fang&#39;s TechNotes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Apr 2016 11:48:26 +0800</lastBuildDate>
+    <atom:link href="http://replace-this-with-your-hugo-site.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>OCR Digit Number Recognition</title>
+      <link>http://replace-this-with-your-hugo-site.com/post/OCRDigitNumber/</link>
+      <pubDate>Wed, 20 Apr 2016 11:48:26 +0800</pubDate>
+      
+      <guid>http://replace-this-with-your-hugo-site.com/post/OCRDigitNumber/</guid>
+      <description>&lt;h1&gt;OCR 数字识别&lt;/h1&gt;
+
+&lt;p&gt;最近一个项目中要做一个识别数字的应用。
+因此记录一下目前我的理解和做法。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;数字识别应该包括一下几个方面：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;数字区域提取&lt;/li&gt;
+&lt;li&gt;数字的表现形式（我这里就是二值化数据）&lt;/li&gt;
+&lt;li&gt;数字与样本的匹配&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;数字区域提取&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;其实这个地方我认为是很关键的地方，但是网上大多的blog都只是从单纯数字区域开始。偶尔有作者提到数字区域提取也是用简单的hard threshhold 的方法，这种做法对于背景丰富的图片来讲是不适应的。&lt;/p&gt;
+
+&lt;p&gt;遗憾的是，我也没有找到general的方法能够获取数字区域。由于我的项目中目标数字周边的图案是有章可循的，因此基于我的应用场景我可以较为准确的得到这一区域。这跟车牌识别和银行卡识别是一个道理，此类应用的应用情景有着固定的模式，可以很好的辅助数字区域的获取。或许这一主题确实是要根据应用场景而定。若有文章中涉及在复杂背景图片任意位置放置任意角度数字的定位，请麻烦告知我让我学习一下。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;数字的表现形式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在获取了数字区域后，可以在这个区域上进行二值化。目前我的项目允许我只处理数字比较正立的情况，在这个假设下我可以通过行列的直方图得到较为精准的单个数字的区域。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;数字与样本的匹配&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这一过程有许多复杂一些的算法，blob数，神经网络，贝叶斯网络这些都有相关介绍。但是在没有什么形变并且对象形状已知的情况下，我并不需要采用这些复杂的算法，简单的相关性判断测试下来已经符合要求。&lt;/p&gt;
+
+&lt;p&gt;做这一部分需要进行：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;样本库的建立。比如，把标准的数字图片变成01表示的数组。由于样本库是要一直存在在运行的程序中的，为了节省内存，推荐将01按bit存而不要用byte存。同时可以根据需要建立多尺度的样本数据。&lt;/li&gt;
+&lt;li&gt;将数字矩阵scale到样本大小。这个scale普遍有nearest bilinear bicubic这些做法。&lt;/li&gt;
+&lt;li&gt;矩阵的相关。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;本项目涉及的知识点&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ostu&lt;/li&gt;
+&lt;li&gt;histogram&lt;/li&gt;
+&lt;li&gt;integral map&lt;/li&gt;
+&lt;li&gt;interpolation methods&lt;/li&gt;
+&lt;li&gt;correlation&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
