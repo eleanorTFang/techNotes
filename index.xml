@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eleanor Fang&#39;s TechNotes</title>
-    <link>http://eleanorTFang.github.io/</link>
+    <link>http://eleanorTFang.github.io/techNotes/</link>
     <description>Recent content on Eleanor Fang&#39;s TechNotes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Apr 2016 11:48:26 +0800</lastBuildDate>
-    <atom:link href="http://eleanorTFang.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://eleanorTFang.github.io/techNotes/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>OCR Digit Number Recognition</title>
-      <link>http://eleanortfang.github.io/post/OCRDigitNumber/</link>
+      <link>http://eleanortfang.github.io/techNotes/post/OCRDigitNumber/</link>
       <pubDate>Wed, 20 Apr 2016 11:48:26 +0800</pubDate>
       
-      <guid>http://eleanortfang.github.io/post/OCRDigitNumber/</guid>
+      <guid>http://eleanortfang.github.io/techNotes/post/OCRDigitNumber/</guid>
       <description>&lt;h1&gt;OCR 数字识别&lt;/h1&gt;
 
 &lt;p&gt;最近一个项目中要做一个识别数字的应用。
