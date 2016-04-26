@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bayes on Eleanor Fang&#39;s TechNotes</title>
+    <link>http://eleanorTFang.github.io/techNotes/tag/bayes/</link>
+    <description>Recent content in Bayes on Eleanor Fang&#39;s TechNotes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Apr 2016 19:23:51 +0800</lastBuildDate>
+    <atom:link href="http://eleanorTFang.github.io/techNotes/tag/bayes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Naive Bayesian</title>
+      <link>http://eleanortfang.github.io/techNotes/post/naive-bayesian/</link>
+      <pubDate>Wed, 20 Apr 2016 19:23:51 +0800</pubDate>
+      
+      <guid>http://eleanortfang.github.io/techNotes/post/naive-bayesian/</guid>
+      <description>&lt;h2&gt;machine learning in action 中讲解&lt;/h2&gt;
+
+&lt;p&gt;贝叶斯决策理论的核心思想：选择具有最高概率的决策&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;数学知识&lt;/h3&gt;
+条件概率 $P(A|B)=\frac{P(A,B)}{P(B)}$&lt;/p&gt;
+
+&lt;p&gt;贝叶斯准则 $P(C|x)=\frac{P(x|c)*P&amp;copy;}{P(x)}$&lt;/p&gt;
+
+&lt;p&gt;贝叶斯决策理论
+&lt;ol&gt;
+&lt;li&gt;如果p1(x,y)&amp;gt;p2(x,y),则属于类别1&lt;/li&gt;
+&lt;li&gt;如果p2(x,y)&amp;gt;p1(x,y),则属于类别2&lt;/li&gt;
+&lt;/ol&gt;&lt;/p&gt;
+
+&lt;p&gt;贝叶斯分类准则
+&lt;ol&gt;
+&lt;li&gt;如果p(c1|x,y)&amp;gt;p(c2|x,y),则属于类别1&lt;/li&gt;
+&lt;li&gt;如果p(c2|x,y)&amp;gt;p(c1|x,y),则属于类别2&lt;/li&gt;
+&lt;/ol&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;朴素贝叶斯的一般过程&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt; 收集数据&lt;/li&gt;
+&lt;li&gt;准备数据：需要数值型或者布尔型数据&lt;/li&gt;
+&lt;li&gt;分析数据：有大量特征时，绘制特征作用不大，此时使用直方图效果更好&lt;/li&gt;
+&lt;li&gt;训练计算：计算不同的独立特征的条件概率&lt;/li&gt;
+&lt;li&gt;测试算法：计算错误率&lt;/li&gt;
+&lt;li&gt;使用算法：一个常见的朴素贝叶斯应用是文档分类。可以在任意的分类场景中使用朴素贝叶斯分类器，不一定非要是文本。
+&lt;/ol&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;朴素贝叶斯的假设&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;特征独立&lt;/li&gt;
+&lt;li&gt;每个特征同等重要&lt;/li&gt;
+&lt;/ol&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;朴素贝叶斯的两种普遍实现方式&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;基于贝努力模型实现&lt;/li&gt;
+&lt;li&gt;基于多项式模型实现&lt;/li&gt;
+&lt;/ol&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;使用朴素贝叶斯进行文本分类&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;准备数据：从文本中构建词向量&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;处理文本数据，将每个doc的文本处理成一个list，生成一个包含多个list的list,同时将每个doc的所属类别记录在一个list里。这里就两个类别。&lt;/li&gt;
+&lt;li&gt;建立单词库，将上面的文本list里的单词合并，生成一个单词集合&lt;/li&gt;
+&lt;li&gt;根据这个单词集合，可以为每一个doc生成一个跟单词集合一样长的单词列表，即若doc中有这个单词，则相应单词集合位置上置1，否则为0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;从词向量计算概率&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;计算docs中类别1的概率。使用所属类别的和除以docs的总数&lt;/li&gt;
+&lt;li&gt;计算两个类别的单词总数，以及每个单词在两个类别里的各自总数&lt;/li&gt;
+&lt;li&gt;计算每个单词在两个类别里出现概率，用各自总数除以类别单词总数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;测试算法：根据现实情况修改分类器&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;计算要分类的vec的单词向量与单词概率表的乘积&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;准备数据：bag-of-words model&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;在set-of-words model中，一个词只按出现与否处理，在bag-of-words model中，一个词可以多次出现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;示例：过滤垃圾邮件&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;获取一定数量邮件的内容并存成文件，同时分好类&lt;/li&gt;
+&lt;li&gt;将文件内容变成词向量&lt;/li&gt;
+&lt;li&gt;随机选择部分保留下来作为测试集，其余做训练集&lt;/li&gt;
+&lt;li&gt;从训练集计算分类的概率向量&lt;/li&gt;
+&lt;li&gt;用测试集测试，并计算错误率&lt;/li&gt;
+&lt;li&gt;多次测试取平均&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/ol&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;eleanor&amp;rsquo;s notes&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;上面整个文本分类可以这样理解&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;希望通过已有的文本分类决定未知分类的文本类型，那么数学上P(c1|w)的含义就是在当前单词的前提下，属于类别1的概率。此时p(w)=1,贝叶斯准则退化成P(c1|w)=P(w|c1)&lt;em&gt;P(c1)&lt;/li&gt;
+&lt;li&gt;通过构建已知分类的文本的所有单词的词向量，计算每个单词在不同类别下的比重，获取p(wi|c0) p(wi|c1)&lt;/li&gt;
+&lt;li&gt;由于贝叶斯分类的前提是特征独立，那么p(w|ci)=p(w1|ci)&lt;/em&gt;&amp;hellip;*p(wn|ci)&lt;/li&gt;
+&lt;li&gt;由于最后实现时采用了log，因此P(w|ci)*P(ci)变成了加法。这一点书中并没有这样解释，甚至在没采用log时程序就已经加了P(ci)，或许是错误的。&lt;/li&gt;
+&lt;li&gt;根据上述分析，因此最终有logP(ci|w)=sum(log(p(wj|ci)))+log(p(ci))&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/ol&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

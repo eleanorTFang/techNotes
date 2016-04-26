@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Knn on Eleanor Fang&#39;s TechNotes</title>
+    <link>http://eleanorTFang.github.io/techNotes/tag/knn/</link>
+    <description>Recent content in Knn on Eleanor Fang&#39;s TechNotes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Apr 2016 20:34:01 +0800</lastBuildDate>
+    <atom:link href="http://eleanorTFang.github.io/techNotes/tag/knn/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Machine Learning -- KNN</title>
+      <link>http://eleanortfang.github.io/techNotes/post/machine-learning-knn/</link>
+      <pubDate>Fri, 15 Apr 2016 20:34:01 +0800</pubDate>
+      
+      <guid>http://eleanortfang.github.io/techNotes/post/machine-learning-knn/</guid>
+      <description>&lt;h2&gt;machine learning in action 中讲解&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;    knn的一般流程
+&lt;ol&gt;
+&lt;li&gt;    收集数据 &lt;/li&gt;
+&lt;li&gt;    准备数据：变成结构化的数据格式 &lt;/li&gt;
+&lt;li&gt;    分析数据&lt;/li&gt;
+&lt;li&gt;    训练算法：此步骤不适用于k近邻算法&lt;/li&gt;
+&lt;li&gt;    测试算法：计算错误率&lt;/li&gt;
+&lt;li&gt;    使用算法：输入样本数据和结构化的输出结果，然后运行knn判断输入数据属于哪个分类&lt;/li&gt;
+
+
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;    已有样本集，通过计算未知项与已知样本的距离，取最近的k的样本，得到未知项的性质。
+&lt;/li&gt;
+
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;h2&gt;eleanor&amp;rsquo;s notes&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;使用knn的前提&lt;/li&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;要划分的类别是明确的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;li&gt;使用knn的缺陷&lt;/li&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;计算量大&lt;/li&gt;
+&lt;li&gt;需要正确的选择距离的表达方式以及考虑是否需要归一化。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;li&gt;我在做&lt;a href=&#34;http://eleanortfang.github.io/techNotes/post/ocr-digit-number-recognition/&#34;&gt;字符识别&lt;/a&gt;时相当于做了一个k=1的KNN。&lt;/li&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/ol&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
