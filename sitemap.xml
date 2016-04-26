@@ -13,8 +13,13 @@
   </url>
   
   <url>
-    <loc>http://eleanortfang.github.io/techNotes/post/OCRDigitNumber/</loc>
+    <loc>http://eleanortfang.github.io/techNotes/post/ocr-digit-number-recognition/</loc>
     <lastmod>2016-04-20T11:48:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://eleanortfang.github.io/techNotes/post/machine-learning-knn/</loc>
+    <lastmod>2016-04-15T20:34:01+08:00</lastmod>
   </url>
   
 </urlset>
