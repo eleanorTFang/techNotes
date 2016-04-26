@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <link rel="stylesheet" href="http://eleanortfang.github.io/techNotescss/styles.css">
-    <link rel="stylesheet" href="http://eleanortfang.github.io/techNotescss/custom.css">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://eleanortfang.github.io/techNotes/index.xml">
+    <link rel="stylesheet" href="http://eleanortfang.github.io/techNotes/css/styles.css">
+    <link rel="stylesheet" href="http://eleanortfang.github.io/techNotes/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://eleanortfang.github.io/techNotes//index.xml">
 
     
     <title>OCR Digit Number Recognition - Eleanor Fang&#39;s TechNotes</title>
@@ -37,7 +37,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://eleanortfang.github.io/techNotes">Eleanor Fang&#39;s TechNotes</a>
+            <a class="navbar-brand" href="http://eleanortfang.github.io/techNotes/">Eleanor Fang&#39;s TechNotes</a>
           </div>
 
           <div id="navbar" class="collapse navbar-collapse">
@@ -60,19 +60,19 @@
 
       <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
 
-        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://eleanortfang.github.io/techNotes"/>
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://eleanortfang.github.io/techNotes/"/>
         <meta itemprop="dateModified" content="2016-04-20T11:48:26&#43;08:00">
         <meta itemprop="headline" content="OCR Digit Number Recognition">
         <meta itemprop="description" content="OCR 数字识别 最近一个项目中要做一个识别数字的应用。 因此记录一下目前我的理解和做法。 数字识别应该包括一下几个方面： 数字区域提取 数字的表现形式（我这里就是二值化数据） 数字与样本的匹配 数字区域提取 其实这个地方我认为是很关键的地方，但是网上大多的blog都只是从单纯数字区域开始。偶尔有作者提到数字区域提取也是用简单的hard threshhold 的方法，这种做法对于背景丰富的图片来讲是不适应的。 遗憾的是，我也没有找到general的方法能够获取数字区域。由于我的项目中目标数字周边的图案是有章可循的，因此基于我的应用场景我可以较为准确的得到这一区域。这跟车牌识别和银行卡识别是一个道理，此类应用的应用情景有着固定的模式，可以很好的辅助数字区域的获取。或许这一主题确实是要根据应用场景而定。若有文章中涉及在复杂背景图片任意位置放置任意角度数字的定位，请麻烦告知我让我学习一下。 数字的表现形式 在获取了数字区域后，可以在这个区域上进行二值化。目前我的项目允许我只处理数字比较正立的情况，在这个假设下我可以通过行列的直方图得到较为精准的单个数字的区域。 数字与样本的匹配 这一过程有许多复杂一些的算法，blob数，神经网络，贝叶斯网络这些都有相关介绍。但是在没有什么形变并且对象形状已知的情况下，我并不需要采用这些复杂的算法，简单的相关性判断测试下来已经符合要求。 做这一部分需要进行： 样本库的建立。比如，把标准的数字图片变成01表示的数组。由于样本库是要一直存在在运行的程序中的，为了节省内存，推荐将01按bit存而不要用byte存。同时可以根据需要建立多尺度的样本数据。 将数字矩阵scale到样本大小。这个scale普遍有nearest bilinear bicubic这些做法。 矩阵的相关。 本项目涉及的知识点 ostu histogram integral map interpolation methods correlation">
         <meta itemprop="url" content="http://eleanortfang.github.io/techNotes/post/ocr-digit-number-recognition/">
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-          <meta itemprop="url" content="http://eleanortfang.github.io/techNotesimages/default.jpg" />
+          <meta itemprop="url" content="http://eleanortfang.github.io/techNotes/images/default.jpg" />
           <meta itemprop="width" content="800">
           <meta itemprop="height" content="800">
         </div>
         <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
           <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="http://eleanortfang.github.io/techNotesimages/logo.jpg">
+            <meta itemprop="url" content="http://eleanortfang.github.io/techNotes/images/logo.jpg">
             <meta itemprop="width" content="100">
             <meta itemprop="height" content="100">
           </div>
@@ -194,7 +194,7 @@
     </div>
     <div class="list-group">
       
-      <a href="http://eleanortfang.github.io/techNotescategory/machine-learning-in-action" class="list-group-item">machine-learning-in-action</a>
+      <a href="http://eleanortfang.github.io/techNotes/category/machine-learning-in-action" class="list-group-item">machine-learning-in-action</a>
       
     </div>
   </div>
@@ -205,9 +205,9 @@
     </div>
     <div class="list-group">
       
-      <a href="http://eleanortfang.github.io/techNotestag/bayes" class="list-group-item">bayes</a>
+      <a href="http://eleanortfang.github.io/techNotes/tag/bayes" class="list-group-item">bayes</a>
       
-      <a href="http://eleanortfang.github.io/techNotestag/knn" class="list-group-item">knn</a>
+      <a href="http://eleanortfang.github.io/techNotes/tag/knn" class="list-group-item">knn</a>
       
     </div>
   </div>
