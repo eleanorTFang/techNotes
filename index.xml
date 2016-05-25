@@ -6,8 +6,38 @@
     <description>Recent content on Eleanor Fang&#39;s TechNotes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Apr 2016 19:23:51 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 May 2016 21:48:50 +0800</lastBuildDate>
     <atom:link href="http://eleanorTFang.github.io/techNotes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cluster Analysis/聚类分析</title>
+      <link>http://eleanortfang.github.io/techNotes/post/cluster-analysis/</link>
+      <pubDate>Wed, 25 May 2016 21:48:50 +0800</pubDate>
+      
+      <guid>http://eleanortfang.github.io/techNotes/post/cluster-analysis/</guid>
+      <description>&lt;h2&gt;Cluster Analysis/聚类分析&lt;/h2&gt;
+
+&lt;p&gt;昨晚与Andy讨论SLAM算法，Andy说用了KNN，我就问他是KNN还是k聚类，实事是他用的是k聚类。其实我很长一段时间也会弄混掉两者的关系。之前有写过KNN，那么这次写一下聚类分析。&lt;/p&gt;
+
+&lt;p&gt;聚类分析是希望对多元数据进行cluster划分，得到簇内同质性高，簇间异质性高的划分。
+先从普及度高的k聚类讲起。
+&lt;ul&gt;
+简单的k聚类是聚类簇数目已知。此时有
+&lt;li&gt;K-均值：将cluster的均值作为参考点
+&lt;/li&gt;
+&lt;li&gt;K-中心点聚类：将cluster中的点作为参考点
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;k-means&lt;/h3&gt;
+据说精确解的k-聚类是一个NP-hard问题。k-均值聚类是一种易实现的方法。任意选定k个点作为初始参考点，然后计算每个点与参考点的距离，并将该点归为距离最近的参考点，用同一类中点的均值作为新的参考点，继续迭代，直到簇的划分不再变动。&lt;/p&gt;
+
+&lt;p&gt;缺点：若是有离群点，又若是刚好初始点就有离群点，那么这个时候有可能收敛到局部最优点。&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;k-中心点聚类&lt;/h3&gt;
+这个方法是为了解决离群点对k-means的影响，采用实际的点来代表簇中心。而更新簇中心的规则计算簇内点到假设中心点的距离，若能够使簇更紧凑，那么更新中心点。计算量也随之增大。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Naive Bayesian</title>

@@ -14,12 +14,12 @@
     <link rel="alternate" type="application/rss+xml" title="RSS" href="http://eleanortfang.github.io/techNotes//index.xml">
 
     
-    <title>Machine Learning -- KNN - Eleanor Fang&#39;s TechNotes</title>
-    <meta property='og:title' content="Machine Learning -- KNN - Eleanor Fang&#39;s TechNotes">
+    <title>Cluster Analysis/聚类分析 - Eleanor Fang&#39;s TechNotes</title>
+    <meta property='og:title' content="Cluster Analysis/聚类分析 - Eleanor Fang&#39;s TechNotes">
     <meta property="og:type" content="article">
     
 
-    <meta property="og:url" content="http://eleanortfang.github.io/techNotes/post/machine-learning-knn/">
+    <meta property="og:url" content="http://eleanortfang.github.io/techNotes/post/cluster-analysis/">
     
     
 
@@ -61,10 +61,10 @@
       <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
 
         <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://eleanortfang.github.io/techNotes/"/>
-        <meta itemprop="dateModified" content="2016-04-15T20:34:01&#43;08:00">
-        <meta itemprop="headline" content="Machine Learning -- KNN">
-        <meta itemprop="description" content="machine learning in action 中讲解 knn的一般流程 收集数据 准备数据：变成结构化的数据格式 分析数据 训练算法：此步骤不适用于k近邻算法 测试算法：计算错误率 使用算法：输入样本数据和结构化的输出结果，然后运行knn判断输入数据属于哪个分类 已有样本集，通过计算未知项与已知样本的距离，取最近的k的样本，得到未知项的性质。 eleanor&rsquo;s notes 使用knn的前提 要划分的类别是明确的。 使用knn的缺陷 计算量大 需要正确的选择距离的表达方式以及考虑是否需要归一化。 我在做字符识别时相当于做了一个k=1的KNN。">
-        <meta itemprop="url" content="http://eleanortfang.github.io/techNotes/post/machine-learning-knn/">
+        <meta itemprop="dateModified" content="2016-05-25T21:48:50&#43;08:00">
+        <meta itemprop="headline" content="Cluster Analysis/聚类分析">
+        <meta itemprop="description" content="Cluster Analysis/聚类分析 昨晚与Andy讨论SLAM算法，Andy说用了KNN，我就问他是KNN还是k聚类，实事是他用的是k聚类。其实我很长一段时间也会弄混掉两者的关系。之前有写过KNN，那么这次写一下聚类分析。 聚类分析是希望对多元数据进行cluster划分，得到簇内同质性高，簇间异质性高的划分。 先从普及度高的k聚类讲起。 简单的k聚类是聚类簇数目已知。此时有 K-均值：将cluster的均值作为参考点 K-中心点聚类：将cluster中的点作为参考点 k-means 据说精确解的k-聚类是一个NP-hard问题。k-均值聚类是一种易实现的方法。任意选定k个点作为初始参考点，然后计算每个点与参考点的距离，并将该点归为距离最近的参考点，用同一类中点的均值作为新的参考点，继续迭代，直到簇的划分不再变动。 缺点：若是有离群点，又若是刚好初始点就有离群点，那么这个时候有可能收敛到局部最优点。 k-中心点聚类 这个方法是为了解决离群点对k-means的影响，采用实际的点来代表簇中心。而更新簇中心的规则计算簇内点到假设中心点的距离，若能够使簇更紧凑，那么更新中心点。计算量也随之增大。">
+        <meta itemprop="url" content="http://eleanortfang.github.io/techNotes/post/cluster-analysis/">
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
           <meta itemprop="url" content="http://eleanortfang.github.io/techNotes/images/default.jpg" />
           <meta itemprop="width" content="800">
@@ -83,49 +83,32 @@
         </div>
 
         <header class="article-header">
-          <time itemprop="datePublished" pubdate="pubdate" datetime="2016-04-15T20:34:01&#43;08:00">Fri, Apr 15, 2016</time>
-          <h1 class="article-title">Machine Learning -- KNN</h1>
+          <time itemprop="datePublished" pubdate="pubdate" datetime="2016-05-25T21:48:50&#43;08:00">Wed, May 25, 2016</time>
+          <h1 class="article-title">Cluster Analysis/聚类分析</h1>
         </header>
 
         <div class="article-body" itemprop="articleBody">
-          <h2>machine learning in action 中讲解</h2>
+          <h2>Cluster Analysis/聚类分析</h2>
 
-<ol>
-<li>    knn的一般流程
-<ol>
-<li>    收集数据 </li>
-<li>    准备数据：变成结构化的数据格式 </li>
-<li>    分析数据</li>
-<li>    训练算法：此步骤不适用于k近邻算法</li>
-<li>    测试算法：计算错误率</li>
-<li>    使用算法：输入样本数据和结构化的输出结果，然后运行knn判断输入数据属于哪个分类</li>
+<p>昨晚与Andy讨论SLAM算法，Andy说用了KNN，我就问他是KNN还是k聚类，实事是他用的是k聚类。其实我很长一段时间也会弄混掉两者的关系。之前有写过KNN，那么这次写一下聚类分析。</p>
 
-
-</ol>
-</li>
-<li>    已有样本集，通过计算未知项与已知样本的距离，取最近的k的样本，得到未知项的性质。
-</li>
-
-</ol>
-
-<p><h2>eleanor&rsquo;s notes</h2>
-<ol>
-<li>使用knn的前提</li></p>
-
+<p>聚类分析是希望对多元数据进行cluster划分，得到簇内同质性高，簇间异质性高的划分。
+先从普及度高的k聚类讲起。
 <ul>
-<li>要划分的类别是明确的。</li>
-</ul>
+简单的k聚类是聚类簇数目已知。此时有
+<li>K-均值：将cluster的均值作为参考点
+</li>
+<li>K-中心点聚类：将cluster中的点作为参考点
+</li>
+</ul></p>
 
-<p><li>使用knn的缺陷</li></p>
+<p><h3>k-means</h3>
+据说精确解的k-聚类是一个NP-hard问题。k-均值聚类是一种易实现的方法。任意选定k个点作为初始参考点，然后计算每个点与参考点的距离，并将该点归为距离最近的参考点，用同一类中点的均值作为新的参考点，继续迭代，直到簇的划分不再变动。</p>
 
-<ul>
-<li>计算量大</li>
-<li>需要正确的选择距离的表达方式以及考虑是否需要归一化。</li>
-</ul>
+<p>缺点：若是有离群点，又若是刚好初始点就有离群点，那么这个时候有可能收敛到局部最优点。</p>
 
-<p><li>我在做<a href="http://eleanortfang.github.io/techNotes/post/ocr-digit-number-recognition/">字符识别</a>时相当于做了一个k=1的KNN。</li></p>
-
-<p></ol></p>
+<p><h3>k-中心点聚类</h3>
+这个方法是为了解决离群点对k-means的影响，采用实际的点来代表簇中心。而更新簇中心的规则计算簇内点到假设中心点的距离，若能够使簇更紧凑，那么更新中心点。计算量也随之增大。</p>
 
         </div>
 
@@ -134,10 +117,10 @@
           
 
           <div class="section share">
-            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2feleanortfang.github.io%2ftechNotes%2fpost%2fmachine-learning-knn%2f&t=Machine%20Learning%20--%20KNN" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2feleanortfang.github.io%2ftechNotes%2fpost%2fmachine-learning-knn%2f&text=Machine%20Learning%20--%20KNN&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http%3a%2f%2feleanortfang.github.io%2ftechNotes%2fpost%2fmachine-learning-knn%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-            <a href="http://getpocket.com/edit?url=http%3a%2f%2feleanortfang.github.io%2ftechNotes%2fpost%2fmachine-learning-knn%2f&title=Machine%20Learning%20--%20KNN" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2feleanortfang.github.io%2ftechNotes%2fpost%2fcluster-analysis%2f&t=Cluster%20Analysis%2f%e8%81%9a%e7%b1%bb%e5%88%86%e6%9e%90" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2feleanortfang.github.io%2ftechNotes%2fpost%2fcluster-analysis%2f&text=Cluster%20Analysis%2f%e8%81%9a%e7%b1%bb%e5%88%86%e6%9e%90&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2feleanortfang.github.io%2ftechNotes%2fpost%2fcluster-analysis%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2feleanortfang.github.io%2ftechNotes%2fpost%2fcluster-analysis%2f&title=Cluster%20Analysis%2f%e8%81%9a%e7%b1%bb%e5%88%86%e6%9e%90" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
           </div>
 
           
@@ -201,11 +184,11 @@
     </div>
     <div class="list-group">
       
-      <a href="http://eleanortfang.github.io/techNotes/tag/cluster" class="list-group-item">cluster</a>
-      
       <a href="http://eleanortfang.github.io/techNotes/tag/bayes" class="list-group-item">bayes</a>
       
       <a href="http://eleanortfang.github.io/techNotes/tag/knn" class="list-group-item">knn</a>
+      
+      <a href="http://eleanortfang.github.io/techNotes/tag/cluster" class="list-group-item">cluster</a>
       
     </div>
   </div>
